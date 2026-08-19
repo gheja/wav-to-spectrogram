@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import subprocess
 import os
 
-def wav_to_spectrogram(input_wav, output_png, width = 1920, height = 1080):
+def wav_to_spectrogram(input_wav, output_png, width = 1920, height = 1080, ax_nfft = 2048, ax_noverlap = 1024):
 	print("Reading audio...")
 	sample_rate, audio = wavfile.read(input_wav)
 	
@@ -26,8 +26,8 @@ def wav_to_spectrogram(input_wav, output_png, width = 1920, height = 1080):
 	ax.specgram(
 		audio,
 		Fs=sample_rate,
-		NFFT=2048,
-		noverlap=1024,
+		NFFT=ax_nfft,
+		noverlap=ax_noverlap,
 		cmap="magma"
 	)
 	
@@ -46,10 +46,10 @@ def wav_to_spectrogram(input_wav, output_png, width = 1920, height = 1080):
 	
 	print(f"Image created: {output_png}")
 
-def wav_to_spectrogram_video(input_wav, output_mp4, width = 1920, height = 1080, fps = 60):
+def wav_to_spectrogram_video(input_wav, output_mp4, width = 1920, height = 1080, fps = 60, ax_nfft = 2048, ax_noverlap = 1024):
 	tmp_image = "spectrogram_tmp.png"
 
-	wav_to_spectrogram(input_wav, tmp_image, width, height)
+	wav_to_spectrogram(input_wav, tmp_image, width, height, ax_nfft, ax_noverlap)
 	
 	print("Rendering video...")
 	
