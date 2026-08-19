@@ -4,9 +4,9 @@ From a WAV file to image or video.
 
 Examples:
 
-![Image example](example.png)
+![Image example](examples/example.png)
 
-![Video example](freesound_org_607245__d4xx__chicken.mp4)
+![Video example](examples/freesound_org_607245__d4xx__chicken.mp4)
 
 ---
 
