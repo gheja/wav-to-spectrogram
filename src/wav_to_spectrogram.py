@@ -62,8 +62,8 @@ def wav_to_spectrogram_video(input_wav, output_mp4, width = 1920, height = 1080,
 		"-loop", "1",
 		"-i", tmp_image,
 		
-		# background for the line
-		"-f",  "lavfi", "-i", f"color=c=white:s=2x1080:r={fps}:d={duration}",
+		# background for the playhead line
+		"-f",  "lavfi", "-i", f"color=c=white:s=3x1080:r={fps}:d={duration}",
 	
 		# input audio
 		"-i", input_wav,
