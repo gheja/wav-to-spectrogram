@@ -46,16 +46,14 @@ def wav_to_spectrogram(input_wav, output_png, width = 1920, height = 1080, ax_nf
 	
 	print(f"Image created: {output_png}")
 
+	return duration
+
 def wav_to_spectrogram_video(input_wav, output_mp4, width = 1920, height = 1080, fps = 60, ax_nfft = 2048, ax_noverlap = 1024):
 	tmp_image = "spectrogram_tmp.png"
 
-	wav_to_spectrogram(input_wav, tmp_image, width, height, ax_nfft, ax_noverlap)
+	duration = wav_to_spectrogram(input_wav, tmp_image, width, height, ax_nfft, ax_noverlap)
 	
 	print("Rendering video...")
-	
-	# fetch duration
-	sample_rate, audio = wavfile.read(input_wav)
-	duration = len(audio.astype(np.float32)) / sample_rate
 	
 	command = [
 		"ffmpeg",
