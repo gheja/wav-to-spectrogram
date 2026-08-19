@@ -1,6 +1,8 @@
 # WAV to Spectrogram
 
-From a WAV file to image or video.
+From a WAV file to image or video with playhead.
+
+The script needs `ffmpeg` in `PATH` for creating video.
 
 Examples:
 
