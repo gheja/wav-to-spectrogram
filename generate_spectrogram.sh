@@ -5,9 +5,10 @@ if [ $# != 1 ]; then
 	exit 1
 fi
 
-input_file=`readlink -f "$1"`
+input_file=`readlink -f -- "$1"`
+script_dir="$(dirname -- $(readlink -f -- "${BASH_SOURCE[0]}"))"
 
-cd /home/gheja/works_local/wav-to-spectrogram || exit 1
+cd "$script_dir"
 
 . .venv/bin/activate
 
